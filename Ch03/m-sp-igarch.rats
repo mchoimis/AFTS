@@ -1,0 +1,25 @@
+************************
+* Estimate an IGARCH(1,1) model for excess returns of SP500
+************************
+all 0 792:1
+open data sp500.dat
+data(org=obs) / rt
+set h = 0.0
+nonlin mu a0 b1 
+frml at = rt(t) - mu
+frml gvar = a0 + (1-b1)*at(t-1)**2+b1*h(t-1)
+frml garchlog = -0.5*log(h(t)=gvar(t))-0.5*at(t)**2/h(t)
+smpl 2 792
+compute mu = 0.01, a0 = 0.01, b1 = 0.6
+maximize(method=bhhh,recursive,iterations=150) garchlog
+set resi = at(t)
+set fv = gvar(t)                                                      
+set resid = at(t)/sqrt(fv(t)) 
+set residsq = resid(t)*resid(t) 
+table / resid
+*** Checking standardized residuals ***
+cor(qstats,number=20,span=10) resid 
+*** Checking squared standardized residuals ***
+cor(qstats,number=20,span=10) residsq
+*** print the last few data for forecasting
+print 788 792 rt resi fv 

@@ -1,0 +1,37 @@
+************************
+* Estimate an AR(3)-GARCH(1,1) model for excess returns of SP500
+************************
+all 0 792:1
+open data sp500.dat
+*
+data(org=obs) / rt
+*
+set h = 0.0
+*
+nonlin p0 p1 p2 p3 a0 a1 b1 
+*
+frml at = rt(t) - p0 - p1*rt{1} - p2*rt{2} - p3*rt{3}
+frml gvar = a0 + a1*at(t-1)**2+b1*h(t-1)
+frml garchlog = -0.5*log(h(t)=gvar(t))-0.5*at(t)**2/h(t)
+*
+smpl 5 792
+*
+* initial values
+*
+compute p0 =0.01, p1 = 0.1, p2 = 0.01,p3 = 0.01
+compute a0 = 0.01, a1 = 0.1, b1 = 0.7
+*
+maximize(method=bhhh,recursive,iterations=150) garchlog
+*
+set resi = at(t)
+set fv = gvar(t)                                                      
+set resid = at(t)/sqrt(fv(t)) 
+set residsq = resid(t)*resid(t) 
+table / resid
+*** 
+*** Checking standardized residuals ***
+cor(qstats,number=20,span=10) resid 
+*** Checking squared standardized residuals ***
+cor(qstats,number=20,span=10) residsq
+*** print the last few data for forecasting
+print 788 792 rt resi fv 

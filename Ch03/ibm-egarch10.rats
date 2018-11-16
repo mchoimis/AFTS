@@ -1,0 +1,22 @@
+*** EGARCH(1,0) model for m-ibmln.dat
+all 0  864:1
+open data m-ibmln.dat
+data(org=obs) / rt
+set h = 0.0
+nonlin p0 p1 th ga a0 a1                                                 
+frml at = rt(t)-p0-p1*rt{1}
+frml epsi = at(t)/(sqrt(exp(h(t))))                                   
+frml g = th*epsi(t)+ga*(abs(epsi(t))-0.7978846)                       
+frml gvar = a1*h(t-1)+(1-a1)*a0+g(t-1)                                
+frml garchln = -0.5*(h(t)=gvar(t))-0.5*epsi(t)**2 
+smpl 4  864
+compute th = 0.1, ga =0.1, p0=0.01,p1 =0.1, a0 = -0.2, a1 = 0.7
+maximize(method=bhhh,recursive,iterations=150) garchln 
+set fv = gvar(t)
+set resid = at(t)/sqrt(exp(fv(t))) 
+set residsq = resid(t)*resid(t) 
+*** 
+*** Checking standardized residuals ***
+cor(qstats,number=20,span=10) resid 
+*** Checking squared standardized residuals ***
+cor(qstats,number=20,span=10) residsq 

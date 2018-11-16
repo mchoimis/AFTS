@@ -1,0 +1,26 @@
+all 0  888:1
+open data m-ibmspln.dat
+data(org=obs) / r1 rt
+set h = 0.0
+nonlin mu a0  a2 b1 d1 
+frml at = rt(t)-mu
+frmal re = r1(t)-1.24
+frml gvar = a0+a2*at(t-2)**2+b1*h(t-1)+d1*re(t-2)**2
+frml garchln = -0.5*log(h(t)=gvar(t))-0.5*at(t)**2/h(t) 
+smpl 4  888
+eval b1 = 0.84
+eval mu = 0.48
+eval a0 = 1.3
+compute a2 = 0.1, d1 = 0.5, d2 = 0.1
+maximize(method=bhhh,recursive,iterations=250) garchln 
+set fv = gvar(t)                                                      
+set resid = at(t)/sqrt(fv(t)) 
+set residsq = resid(t)*resid(t) 
+*** 
+*** Checking standardized residuals ***
+cor(qstats,number=20,span=10) resid 
+*** Checking squared standardized residuals ***
+cor(qstats,number=20,span=10) residsq 
+*** Last few observations needed for forecasts ***
+set shock = at(t) 
+print   883  888 rt shock fv 

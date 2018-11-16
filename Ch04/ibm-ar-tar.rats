@@ -1,0 +1,32 @@
+** RATS run-stream for AR(2)-Tar-GARCH(1,1) model for daily log returns of IBM
+all 0 9442:1
+open data d-ibmln99.dat
+data(org=obs) / rt
+set h = 0.0
+*nonlin mu p1 p2 a0 a1 a2 b0 b1 b2 
+nonlin mu p2 a0 a1 a2 b0 b1 b2 
+*frml at = rt(t)-mu-p1*rt(t-1)-p2*rt(t-2)
+frml at = rt(t)-mu-p2*rt(t-2)
+frml gvar1 = a0+a1*at(t-1)**2+a2*h(t-1)
+frml gvar = gvar1(t) + %if(at(t-1)>0.0,b0,0) $
+                   + %if(at(t-1)>0.0,b1*at(t-1)**2,0) $
+                   + %if(at(t-1)>0.0,+b2*h(t-1),0)
+frml garchln = -0.5*log(h(t)=gvar(t))-0.5*at(t)**2/h(t) 
+smpl 4 9442
+compute mu =0.03, p1 =0.1, p2 = -0.03
+compute a0 = 0.1, a1 = 0.1, a2 = 0.6, b0 = 0.1, b1 = 0.05, b2 = 0.1
+compute a3 = 0.1, b3 = 0.1
+maximize(method=simplex,iterations=10) garchln 
+smpl 4  9442
+maximize(method=bhhh,recursive,iterations=150) garchln 
+set fv = gvar(t)                                                      
+set resid = at(t)/sqrt(fv(t)) 
+set residsq = resid(t)*resid(t) 
+*** 
+*** Checking standardized residuals ***
+cor(qstats,number=20,span=10) resid 
+*** Checking squared standardized residuals ***
+cor(qstats,number=20,span=10) residsq 
+*** Last few observations needed for forecasts ***
+set shock = at(t) 
+print  9438 9442 rt shock fv 

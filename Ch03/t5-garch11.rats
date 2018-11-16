@@ -1,0 +1,27 @@
+************************
+* This program performs GARCH(1,1) Estimation with t-distribution
+************************
+all 0 792:1
+open data sp500.dat
+data(org=obs) / rt
+set h = 0.0
+nonlin a0 a1 b1 mu
+frml resi = rt(t) - mu
+frml gvar = a0 + a1*resi(t-1)**2 + b1*h(t-1)
+frml tt = resi(t)**2/(h(t)=gvar(t))
+*** t-dist with 5 d.f 
+frml garchlog = -3.0*log(1.0+tt(t)/3.0) - 0.5*log(h(t))
+smpl 2 792
+compute a0 = 0.01, a1 = 0.1, b1 = 0.7, mu = 0.02
+maximize(method=bhhh,recursive,iterations=100) garchlog
+set fv = gvar(t)                                                      
+set resid = resi(t)/sqrt(fv(t)) 
+set residsq = resid(t)*resid(t) 
+*** 
+*** Checking standardized residuals ***
+cor(qstats,number=20,span=10) resid 
+*** Checking squared standardized residuals ***
+cor(qstats,number=20,span=10) residsq 
+*** Last few observations needed for forecasts ***
+set shock = resi(t) 
+print   786  792 rt shock fv 
