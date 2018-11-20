@@ -6,37 +6,37 @@ This is an individual repository prepped for the book [*Analysis of Financial Ti
 
 ****************
 
-1 Financial Time Series and Their Characteristics 1
+### 1 Financial Time Series and Their Characteristics 1
 
-1.1 Asset Returns, 2
+#### 1.1 Asset Returns, 2
 
-1.2 Distributional Properties of Returns, 7
+#### 1.2 Distributional Properties of Returns, 7
 
-1.3 Processes Considered, 22
+####1.3 Processes Considered, 22
 
-2 Linear Time Series Analysis and Its Applications 29
+### 2 Linear Time Series Analysis and Its Applications 29
 
-2.1 Stationarity, 30
+#### 2.1 Stationarity, 30
 
-2.2 Correlation and Autocorrelation Function, 30
+#### 2.2 Correlation and Autocorrelation Function, 30
 
-2.3 White Noise and Linear Time Series, 36
+#### 2.3 White Noise and Linear Time Series, 36
 
-2.4 Simple AR Models, 37
+#### 2.4 Simple AR Models, 37
 
-2.5 Simple MA Models, 57
+#### 2.5 Simple MA Models, 57
 
-2.6 Simple ARMA Models, 64
+#### 2.6 Simple ARMA Models, 64
 
-2.7 Unit-Root Nonstationarity, 71
+#### 2.7 Unit-Root Nonstationarity, 71
 
-2.8 Seasonal Models, 81
+#### 2.8 Seasonal Models, 81
 
-2.9 Regression Models with Time Series Errors, 90
+#### 2.9 Regression Models with Time Series Errors, 90
 
-2.10 Consistent Covariance Matrix Estimation, 97
+#### 2.10 Consistent Covariance Matrix Estimation, 97
 
-2.11 Long-Memory Models, 101
+#### 2.11 Long-Memory Models, 101
 
 3 Conditional Heteroscedastic Models 109
 
