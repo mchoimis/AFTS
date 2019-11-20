@@ -6,13 +6,13 @@ This is an individual repository prepped for the book [*Analysis of Financial Ti
 
 ****************
 
-### 1 Financial Time Series and Their Characteristics
+### [1 Financial Time Series and Their Characteristics](https://github.com/mchoimis/AFTS/tree/master/Ch01)
 
 * 1.1 Asset Returns, 2
 * 1.2 Distributional Properties of Returns, 7
 * 1.3 Processes Considered, 22
 
-### 2 Linear Time Series Analysis and Its Applications
+### [2 Linear Time Series Analysis and Its Applications](https://github.com/mchoimis/AFTS/tree/master/Ch02)
 
 * 2.1 Stationarity, 30
 * 2.2 Correlation and Autocorrelation Function, 30
@@ -26,7 +26,7 @@ This is an individual repository prepped for the book [*Analysis of Financial Ti
 * 2.10 Consistent Covariance Matrix Estimation, 97
 * 2.11 Long-Memory Models, 101
 
-### 3 Conditional Heteroscedastic Models
+### [3 Conditional Heteroscedastic Models](https://github.com/mchoimis/AFTS/tree/master/Ch03)
 
 * 3.1 Characteristics of Volatility, 110
 * 3.2 Structure of a Model, 111
@@ -45,7 +45,7 @@ This is an individual repository prepped for the book [*Analysis of Financial Ti
 * 3.15 Alternative Approaches, 159
 * 3.16 Kurtosis of GARCH Models, 165
 
-### 4 Nonlinear Models and Their Applications
+### [4 Nonlinear Models and Their Applications](https://github.com/mchoimis/AFTS/tree/master/Ch04)
 
 * 4.1 Nonlinear Models, 177
 * 4.2 Nonlinearity Tests, 205
@@ -53,7 +53,7 @@ This is an individual repository prepped for the book [*Analysis of Financial Ti
 * 4.4 Forecasting, 215
 * 4.5 Application, 218
 
-### 5 High-Frequency Data Analysis and Market Microstructure
+### [5 High-Frequency Data Analysis and Market Microstructure](https://github.com/mchoimis/AFTS/tree/master/Ch05)
 
 * 5.1 Nonsynchronous Trading, 232
 * 5.2 Bid–Ask Spread, 235
@@ -64,7 +64,7 @@ This is an individual repository prepped for the book [*Analysis of Financial Ti
 * 5.7 Bivariate Models for Price Change and Duration, 265
 * 5.8 Application, 270
 
-### 6 Continuous-Time Models and Their Applications
+### [6 Continuous-Time Models and Their Applications](https://github.com/mchoimis/AFTS/tree/master/Ch06)
 
 * 6.1 Options, 288
 * 6.2 Some Continuous-Time Stochastic Processes, 288
@@ -77,7 +77,7 @@ This is an individual repository prepped for the book [*Analysis of Financial Ti
 * 6.9 Jump Diffusion Models, 311
 * 6.10 Estimation of Continuous-Time Models, 318
 
-### 7 Extreme Values, Quantiles, and Value at Risk
+### [7 Extreme Values, Quantiles, and Value at Risk](https://github.com/mchoimis/AFTS/tree/master/Ch07)
 
 * 7.1 Value at Risk, 326
 * 7.2 RiskMetrics, 328
@@ -88,7 +88,7 @@ This is an individual repository prepped for the book [*Analysis of Financial Ti
 * 7.7 New Approach Based on the Extreme Value Theory, 359
 * 7.8 The Extremal Index, 377
 
-### 8 Multivariate Time Series Analysis and Its Applications
+### [8 Multivariate Time Series Analysis and Its Applications](https://github.com/mchoimis/AFTS/tree/master/Ch08)
 
 * 8.1 Weak Stationarity and Cross-Correlation Matrices, 390
 * 8.2 Vector Autoregressive Models, 399
@@ -99,7 +99,7 @@ This is an individual repository prepped for the book [*Analysis of Financial Ti
 * 8.7 Threshold Cointegration and Arbitrage, 442
 * 8.8 Pairs Trading, 446
 
-### 9 Principal Component Analysis and Factor Models
+### [9 Principal Component Analysis and Factor Models](https://github.com/mchoimis/AFTS/tree/master/Ch09)
 
 * 9.1 A Factor Model, 468
 * 9.2 Macroeconometric Factor Models, 470
@@ -108,7 +108,7 @@ This is an individual repository prepped for the book [*Analysis of Financial Ti
 * 9.5 Statistical Factor Analysis, 489
 * 9.6 Asymptotic Principal Component Analysis, 498
 
-### 10 Multivariate Volatility Models and Their Applications
+### [10 Multivariate Volatility Models and Their Applications](https://github.com/mchoimis/AFTS/tree/master/Ch10)
 
 * 10.1 Exponentially Weighted Estimate, 506
 * 10.2 Some Multivariate GARCH Models, 510
@@ -119,7 +119,7 @@ This is an individual repository prepped for the book [*Analysis of Financial Ti
 * 10.7 Application, 546
 * 10.8 Multivariate t Distribution, 548
 
-### 11 State-Space Models and Kalman Filter
+### [11 State-Space Models and Kalman Filter](https://github.com/mchoimis/AFTS/tree/master/Ch11)
 
 * 11.1 Local Trend Model, 558
 * 11.2 Linear State-Space Models, 576
@@ -129,7 +129,7 @@ This is an individual repository prepped for the book [*Analysis of Financial Ti
 * 11.6 Forecasting, 601
 * 11.7 Application, 602
 
-### 12 Markov Chain Monte Carlo Methods with Applications
+### [12 Markov Chain Monte Carlo Methods with Applications](https://github.com/mchoimis/AFTS/tree/master/Ch12)
 
 * 12.1 Markov Chain Simulation, 614
 * 12.2 Gibbs Sampling, 615
